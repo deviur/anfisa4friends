@@ -1,2 +1,3 @@
 .idea/
-anfisa4friends/__pycache__/
+*/__pycache__/
+/db.sqlite3
