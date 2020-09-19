@@ -11,6 +11,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 ALLOWED_HOSTS = ['*']
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'homepage',
     'icecream',
+    'anfisa',
 ]
 
 MIDDLEWARE = [
@@ -65,4 +67,5 @@ LANGUAGE_CODE = 'ru'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
 STATIC_URL = '/static/'
