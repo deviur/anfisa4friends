@@ -1,11 +1,13 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 from .models import icecream_db
 
 
 def icecream_list(request):
-    icecreams = []
-    for icecream in icecream_db:
-        icecreams.append(icecream['name'])
+    icecreams = ''
+    for i in range(len(icecream_db)):
+        # Исправьте строчку ниже
+        icecreams += f"{icecream_db[i]['name']} <br> "
 
-    response = '::'.join(icecreams)
-    return HttpResponse(f'Cписок сортов мороженого: {response}')
+    context = {'icecreams': icecreams}
+    # Используйте render в return
+    return render(request, 'icecream/icecream-list.html', context)
