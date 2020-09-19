@@ -18,8 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Здесь укажите имя приложения, которое надо подключить
-    'homepage'
+    'homepage',
 ]
 
 MIDDLEWARE = [
