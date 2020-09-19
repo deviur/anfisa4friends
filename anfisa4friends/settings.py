@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
+    # Здесь нужно указать имя нового приложения icecream
+    'icecream'
 ]
 
 MIDDLEWARE = [
