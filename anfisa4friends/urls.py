@@ -1,6 +1,7 @@
-from django.urls import path
-from homepage import views as home_views
+from django.urls import include, path
 
 urlpatterns = [
-    path('', home_views.index),
+    # Тут должен быть path(), который при обращении к главной странице
+    # переадресует запрос в файл urls.py из директории homepage
+    path('', include('homepage.urls'))
 ]
