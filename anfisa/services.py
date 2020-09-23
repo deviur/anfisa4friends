@@ -15,3 +15,48 @@ def what_weather(city):
         return response.text.strip()
     else:
         return '<ошибка на сервере погоды. попробуйте позже>'
+
+
+def what_temperature(weather):
+    if (weather == '<сетевая ошибка>' or
+            weather == '<ошибка на сервере погоды. попробуйте позже>'):
+        return weather
+    temperature = weather.split()[1]
+    parsed_temperature = ''
+    for char in temperature:
+        if char == '-':
+            parsed_temperature += char
+        try:
+            num = int(char)
+            parsed_temperature += char
+        except ValueError:
+            continue
+    return parsed_temperature
+
+
+def what_conclusion(parsed_temperature):
+    try:
+        # Приведите parsed_temperature к типу int
+        # и сохраните полученное число в переменную temperature
+        temperature = int(parsed_temperature)
+
+        # Теперь можно сравнивать temperature с заданными пределами 18°С и 27°С
+        # и возвращать нужные фразы в зависимости от результатов сравнения.
+
+        # Если (if) температура строго меньше 18:
+        if temperature < 18:
+            # вернуть (return) фразу со словом 'холодно'
+            return 'Не слишком ли холодно для мороженого'
+        # Если температура в диапазоне от 18 до 27 включительно
+        elif temperature <= 27:
+            # вернуть фразу со словами 'в самый раз'
+            return 'Вот и правильно, в самый раз для мороженного!'
+        # В остальных случаях:
+        else:
+            # вернуть фразу со словом 'жарко'
+            return 'Слишком жарко! Возьми два.'
+
+    except ValueError:
+        # Если parsed_temperature не удалось преобразовать в число —
+        # значит, погодный сервис сломался и надо вернуть фразу "Не могу узнать погоду..."
+        return 'Не могу узнать погоду. Сами думайте что делать.'
